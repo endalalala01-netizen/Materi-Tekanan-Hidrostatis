@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Tekanan Hidrostatis</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+
+            /* --- MODIFIKASI LATAR BELAKANG --- */
+            background-image: url('https://z-cdn-media.chatglm.cn/files/dcd7f5ae-7ab6-421b-8a89-28a07e52f94d_pasted_image_1760778486076.png?auth_key=1792314551-560706cb3114494985b5b5004aacd5ac-0-d30338f699fbdd3cc9d913ddc229ec8a');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.3);
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .formula-box {
+            background-color: #eef7ff;
+            border: 1px solid #b3d9ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .soal {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-left: 5px solid #0056b3;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .soal h3 {
+            margin-top: 0;
+            color: #004080;
+        }
+        strong {
+            color: #004080;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        ul {
+            padding-left: 20px;
+        }
+
+        /* --- CSS ANIMATIONS --- */
+
+        /* State awal elemen yang akan dianimasi saat di-scroll */
+        .hidden {
+            opacity: 0;
+            filter: blur(5px);
+            transform: translateX(-100px);
+            transition: all 1s;
+        }
+
+        .hidden-right {
+            transform: translateX(100px);
+        }
+
+        /* State akhir saat elemen terlihat di layar */
+        .visible {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0);
+        }
+
+        /* Animasi untuk judul utama saat halaman dimuat */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-title {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Animasi sorot untuk kotak rumus */
+        @keyframes highlightFormula {
+            0% {
+                box-shadow: 0 0 5px #b3d9ff;
+            }
+            50% {
+                box-shadow: 0 0 20px #0056b3, 0 0 30px #0056b3;
+            }
+            100% {
+                box-shadow: 0 0 5px #b3d9ff;
+            }
+        }
+
+        .animate-formula {
+            animation: highlightFormula 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="animate-title">Tekanan Hidrostatis</h1>
+
+        <section id="penjelasan">
+            <h2 class="hidden">Apa itu Tekanan Hidrostatis?</h2>
+            <p class="hidden">
+                <strong>Tekanan Hidrostatis</strong> adalah tekanan yang disebabkan oleh berat suatu fluida (zat cair) yang diam pada suatu titik di dalam fluida tersebut. Semakin dalam suatu benda berada di dalam zat cair, semakin besar pula tekanan yang diterimanya.
+            </p>
+            <p class="hidden">
+                Konsep ini penting untuk dipahami karena banyak ditemui dalam kehidupan sehari-hari, seperti saat kita berenang di kolam yang dalam atau menyelam di laut. Gambar latar belakang yang Anda lihat adalah contoh nyata dari penerapan tekanan hidrostatis, di mana air yang lebih dalam di dalam wadah mengeluarkan air dengan kecepatan lebih tinggi.
+            </p>
+
+            <h2 class="hidden">Rumus Tekanan Hidrostatis</h2>
+            <p class="hidden">
+                Besar tekanan hidrostatis dapat dihitung menggunakan rumus berikut:
+            </p>
+            <div class="formula-box animate-formula">
+                P<sub>h</sub> = ρ × g × h
+            </div>
+            <p class="hidden">
+                <strong>Keterangan:</strong>
+            </p>
+            <ul class="hidden">
+                <li><strong>P<sub>h</sub></strong> = Tekanan Hidrostatis (satuan: Pascal atau N/m²)</li>
+                <li><strong>ρ</strong> (rho) = Massa jenis zat cair (satuan: kg/m³)</li>
+                <li><strong>g</strong> = Percepatan gravitasi bumi (umumnya digunakan 9,8 m/s² atau 10 m/s² untuk mempermudah perhitungan)</li>
+                <li><strong>h</strong> = Kedalaman titik dari permukaan zat cair (satuan: meter)</li>
+            </ul>
+
+            <h2 class="hidden">Faktor-faktor yang Mempengaruhi Tekanan Hidrostatis</h2>
+            <p class="hidden">
+                Berdasarkan rumus di atas, dapat disimpulkan bahwa tekanan hidrostatis dipengaruhi oleh tiga faktor:
+            </p>
+            <ul class="hidden">
+                <li><strong>Massa Jenis (ρ):</strong> Semakin besar massa jenis zat cair, semakin besar tekanan hidrostatisnya. Contohnya, tekanan pada kedalaman yang sama di air laut lebih besar daripada di air tawar karena massa jenis air laut lebih tinggi.</li>
+                <li><strong>Percepatan Gravitasi (g):</strong> Semakin besar percepatan gravitasi, semakin besar tekanan yang dihasilkan.</li>
+                <li><strong>Kedalaman (h):</strong> Semakin dalam suatu benda dari permukaan zat cair, semakin besar tekanan hidrostatis yang dialaminya. Tekanan berbanding lurus dengan kedalaman.</li>
+            </ul>
+            <p class="hidden">
+                <strong>Catatan Penting:</strong> Tekanan hidrostatis <strong>tidak</strong> bergantung pada luas permukaan atau volume wadah.
+            </p>
+        </section>
+
+        <section id="contoh-soal">
+            <h2 class="hidden">Contoh Soal dan Pembahasan</h2>
+
+            <div class="soal hidden-right">
+                <h3>Soal No. 1</h3>
+                <p>
+                    <strong>Diketahui:</strong><br>
+                    Sebuah ikan berada di dalam akuarium pada kedalaman 50 cm. Jika massa jenis air adalah 1000 kg/m³ dan percepatan gravitasi g = 10 m/s², berapakah tekanan hidrostatis yang dialami ikan tersebut?
+                </p>
+                <p>
+                    <strong>Ditanya:</strong><br>
+                    Tekanan hidrostatis (P<sub>h</sub>)?
+                </p>
+                <p>
+                    <strong>Jawab:</strong><br>
+                    Diketahui:<br>
+                    ρ = 1000 kg/m³<br>
+                    g = 10 m/s²<br>
+                    h = 50 cm = 0,5 m (ingat untuk mengubah satuan ke meter!)
+                </p>
+                <p>
+                    Gunakan rumus P<sub>h</sub> = ρ × g × h:<br>
+                    P<sub>h</sub> = 1000 kg/m³ × 10 m/s² × 0,5 m<br>
+                    P<sub>h</sub> = 5000 N/m²<br>
+                    P<sub>h</sub> = 5000 Pa
+                </p>
+                <p>
+                    Jadi, tekanan hidrostatis yang dialami ikan adalah <strong>5000 Pascal</strong>.
+                </p>
+            </div>
+
+            <div class="soal hidden-right">
+                <h3>Soal No. 2</h3>
+                <p>
+                    <strong>Diketahui:</strong><br>
+                    Sebuah penyelam menyelam di laut hingga kedalaman 20 meter. Jika massa jenis air laut adalah 1050 kg/m³ dan g = 10 m/s², berapa besar tekanan hidrostatis pada kedalaman tersebut?
+                </p>
+                <p>
+                    <strong>Ditanya:</strong><br>
+                    Tekanan hidrostatis (P<sub>h</sub>)?
+                </p>
+                <p>
+                    <strong>Jawab:</strong><br>
+                    Diketahui:<br>
+                    ρ = 1050 kg/m³<br>
+                    g = 10 m/s²<br>
+                    h = 20 m
+                </p>
+                <p>
+                    Gunakan rumus P<sub>h</sub> = ρ × g × h:<br>
+                    P<sub>h</sub> = 1050 kg/m³ × 10 m/s² × 20 m<br>
+                    P<sub>h</sub> = 210.000 N/m²<br>
+                    P<sub>h</sub> = 210.000 Pa
+                </p>
+                <p>
+                    Jadi, tekanan hidrostatis pada kedalaman 20 meter adalah <strong>210.000 Pascal</strong>.
+                </p>
+            </div>
+
+            <div class="soal hidden-right">
+                <h3>Soal No. 3</h3>
+                <p>
+                    <strong>Diketahui:</strong><br>
+                    Pada kedalaman tertentu di dalam air, sebuah benda mengalami tekanan hidrostatis sebesar 30.000 Pa (g = 10 m/s², ρ<sub>air</sub> = 1000 kg/m³). Jika benda tersebut turun lagi sejauh 5 meter, berapakah total tekanan hidrostatis yang sekarang dialami benda?
+                </p>
+                <p>
+                    <strong>Ditanya:</strong><br>
+                    Tekanan hidrostatis total pada kedalaman baru?
+                </p>
+                <p>
+                    <strong>Jawab:</strong><br>
+                    Langkah 1: Cari kedalaman awal (h<sub>1</sub>)<br>
+                    P<sub>h1</sub> = ρ × g × h<sub>1</sub><br>
+                    30.000 = 1000 × 10 × h<sub>1</sub><br>
+                    30.000 = 10.000 × h<sub>1</sub><br>
+                    h<sub>1</sub> = 30.000 / 10.000 = 3 meter
+                </p>
+                <p>
+                    Langkah 2: Hitung kedalaman baru (h<sub>2</sub>)<br>
+                    h<sub>2</sub> = h<sub>1</sub> + 5 meter = 3 m + 5 m = 8 meter
+                </p>
+                <p>
+                    Langkah 3: Hitung tekanan hidrostatis pada kedalaman baru (P<sub>h2</sub>)<br>
+                    P<sub>h2</sub> = ρ × g × h<sub>2</sub><br>
+                    P<sub>h2</sub> = 1000 × 10 × 8<br>
+                    P<sub>h2</sub> = 80.000 Pa
+                </p>
+                <p>
+                    Jadi, total tekanan hidrostatis yang dialami benda pada kedalaman barunya adalah <strong>80.000 Pascal</strong>.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Menggunakan Intersection Observer API untuk memicu animasi saat scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Jika elemen adalah h2, animasikan elemen-elemen berikutnya
+                    if (entry.target.tagName === 'H2') {
+                        let nextElement = entry.target.nextElementSibling;
+                        let delay = 200; // delay awal dalam ms
+                        while (nextElement && nextElement.tagName !== 'H2') {
+                            if (nextElement.classList.contains('hidden') || nextElement.classList.contains('hidden-right')) {
+                                setTimeout(() => {
+                                    nextElement.classList.add('visible');
+                                }, delay);
+                                delay += 200; // tambah delay untuk setiap elemen berikutnya
+                            }
+                            nextElement = nextElement.nextElementSibling;
+                        }
+                    }
+                }
+            });
+        }, {
+            threshold: 0.1 // Memicu animasi saat 10% elemen terlihat
+        });
+
+        // Pilih semua elemen yang akan diamati
+        const hiddenElements = document.querySelectorAll('.hidden, .hidden-right');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
